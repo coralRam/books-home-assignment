@@ -12,6 +12,7 @@ export class BookManagerService {
   private _wishListBooksMap: Map<string, Book>;
   private _totalBooksItems: number;
   private _booksMapSearchResult: Map<string, Book>;
+  private _currSearchText: string;
 
   constructor(private http: HttpClient) {
     this._booksMapSearchResult = new Map();
@@ -26,8 +27,12 @@ export class BookManagerService {
     return this._booksSearchResult;
   }*/
 
-  get wishListBooksMap(): Book[] {
+  get wishListBooksMap(): Map<string, Book> {
     return this._wishListBooksMap;
+  }
+
+  get currSearchText(): string {
+    return this._currSearchText;
   }
 
   get totalBooksItems(): number {
@@ -46,9 +51,12 @@ export class BookManagerService {
   searchBooks(searchText: string, startIndex: number, maxResults: number) {
     /*this._booksSearchResult = [];*/
     this._booksMapSearchResult.clear();
+    this._currSearchText = searchText;
     if (searchText !== '') {
-      this.searchQuery(searchText, 0, 20).subscribe(
+      this.searchQuery(searchText, startIndex,  maxResults).subscribe(
         bookResults => {
+          console.log("%%%%%%%%%%%%%%%%%%$$$$$$$$$")
+          console.log(bookResults.totalItems)
           this._totalBooksItems = bookResults.totalItems;
           const allBooks = (<any[]>bookResults.items);
           allBooks.forEach(currBookResult => {

@@ -1,10 +1,11 @@
-<p-dataView #dv [value]="bookManagerService.getBooksSearchResultArray()" [paginator]="true" [rows]="20" paginatorPosition="both">
+<p-dataView #dv [value]="bookManagerService.getBooksSearchResultArray()" [(first)]="first" [paginator]="true" paginatorPosition="both" [rows]="20" [totalRecords]="100" [pageLinks]="1" [lazy]="true" (onLazyLoad)="loadData($event)">
+ <!-- [rows]="10" [totalRecords]="80" paginatorPosition="both" (onPageChange)="paginate($event)"-->
   <p-header>
     <div class="ui-helper-clearfix">
       <div class="ui-g">
         <div class="ui-g-6 ui-md-4 filter-container">
           <div style="position:relative">
-            <input #searchBox type="search" pInputText placeholder="Search your book">
+            <input #searchBox type="search" [(ngModel)]="searchText" pInputText placeholder="Search your book">
           </div>
         </div>
       </div>

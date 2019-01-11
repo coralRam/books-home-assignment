@@ -4,6 +4,7 @@ import {debounceTime,  map} from 'rxjs/operators';
 import {fromEvent} from 'rxjs';
 import {BookManagerService} from '../../../shared/services/book-manager.service';
 import {BookDetailsDialogComponent} from '../book-details-dialog/book-details-dialog.component';
+import {DataTable, Paginator} from 'primeng/primeng';
 
 
 @Component({
@@ -16,7 +17,11 @@ export class SearchComponent implements OnInit {
   /*private presentedBooks: Book[];*/
   private pageIndex: number;
   public displayDialog: boolean;
-  public selectedBook: Book;
+  /*public selectedBook: Book;*/
+  public searchText: string;
+  public first: number = 0;
+
+  @ViewChild('dv') dataView: DataTable;
   @ViewChild('searchBox') searchBox: ElementRef;
 
   constructor(public bookManagerService: BookManagerService,
@@ -30,6 +35,17 @@ export class SearchComponent implements OnInit {
     const inputEvent = input.pipe(map((evt: any) => evt.target.value));
     const debouncedInput = inputEvent.pipe(debounceTime(350));
     const subscribe = debouncedInput.subscribe(searchText => this.bookManagerService.searchBooks(searchText, 0 , 20));
+    this.searchText = '';
+    if (this.bookManagerService.booksMapSearchResult.size > 0) {
+      this.searchText = this.bookManagerService.currSearchText;
+    }
+    this.first = 20;
+
+ /*   Paginator.prototype.changePageToFirst = function (event) {
+      /!*if (!this.isFirstPage()) {*!/
+      this.changePage(4, event);
+      /!* }*!/
+    };*/
   }
 
   selectBook(event: Event, book: Book) {
@@ -40,6 +56,20 @@ export class SearchComponent implements OnInit {
    const componentRef = this.entry.createComponent(this.componentResolver.resolveComponentFactory(BookDetailsDialogComponent));
     (<BookDetailsDialogComponent>componentRef.instance).book = book;
     (<BookDetailsDialogComponent>componentRef.instance).displayDialog = true;
+  }
+
+  paginate(event) {
+    /*//event.first = Index of the first record
+    //event.rows = Number of rows to display in new page
+    //event.page = Index of the new page
+    //event.pageCount = Total number of pages*/
+    console.log("gggggggggggggggggggggggggggggggggggggggggggggggg");
+  }
+
+  loadData(event) {
+    this.bookManagerService.searchBooks(this.searchText, event.first.toString() , 20)
+    console.log( event.first);
+    /*this.setCurrentPage(4);*/
   }
 
   /*search(searchText: string) {
@@ -70,5 +100,13 @@ export class SearchComponent implements OnInit {
         });
       });
   }
+  }*/
+
+/*  setCurrentPage(n: number) {
+    const paging = {
+      first: ((n - 1) * this.dataView.rows),
+      rows: this.dataView.rows
+    };
+    this.dataView.paginate(paging);
   }*/
 }

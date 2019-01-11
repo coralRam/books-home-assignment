@@ -7,7 +7,7 @@ import {
   CodeHighlighterModule,
   DataGridModule,
   DialogModule,
-  DropdownModule,
+  DropdownModule, PaginatorModule,
   PanelModule, SplitButtonModule,
   TabViewModule
 } from 'primeng/primeng';
@@ -22,7 +22,7 @@ import {ToastModule} from 'primeng/toast';
   declarations: [SearchComponent, BookDetailsDialogComponent],
   imports: [CommonModule, HttpClientModule, DataViewModule, DropdownModule, FormsModule,
             DataGridModule, PanelModule, DialogModule, TabViewModule, CodeHighlighterModule,
-            BrowserAnimationsModule, BrowserModule, ButtonModule, ToastModule, SplitButtonModule],
+            BrowserAnimationsModule, BrowserModule, ButtonModule, ToastModule, SplitButtonModule, PaginatorModule],
   exports: [SearchComponent],
   entryComponents: [BookDetailsDialogComponent]
 })
