@@ -13,4 +13,8 @@ export class WishListComponent implements OnInit {
   ngOnInit() {
   }
 
+  removeBookFromWishList(bookToRemove): void{
+
+  }
+
 }

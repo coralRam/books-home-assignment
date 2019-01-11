@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Book} from '../../../shared/classes/book';
-import {DialogModule} from 'primeng/dialog';
 import {BookManagerService} from '../../../shared/services/book-manager.service';
 
 @Component({
@@ -12,6 +11,7 @@ export class BookDetailsDialogComponent implements OnInit {
 
   @Input() book: Book;
   @Input() public displayDialog: boolean;
+  /*@Output() removeBookFromWishList = new EventEmitter<Book>();*/
 
   constructor(private bookManagerService: BookManagerService) { }
 

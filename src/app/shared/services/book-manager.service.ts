@@ -50,7 +50,7 @@ export class BookManagerService {
 
   searchBooks(searchText: string, startIndex: number, maxResults: number) {
     /*this._booksSearchResult = [];*/
-    this._booksMapSearchResult.clear();
+    this._booksMapSearchResult = new Map();
     this._currSearchText = searchText;
     if (searchText !== '') {
       this.searchQuery(searchText, startIndex,  maxResults).subscribe(
@@ -59,29 +59,31 @@ export class BookManagerService {
           console.log(bookResults.totalItems)
           this._totalBooksItems = bookResults.totalItems;
           const allBooks = (<any[]>bookResults.items);
-          allBooks.forEach(currBookResult => {
-            const currPresentedBook = new Book();
-            currPresentedBook.title = currBookResult.volumeInfo.title;
-            if (currBookResult.volumeInfo.authors != null) {
-              currBookResult.volumeInfo.authors.forEach(currAuthor => {
-                currPresentedBook.authors.push(currAuthor);
-              });
-            }
-            if (currBookResult.volumeInfo.publisher != null) {
-              currPresentedBook.publisher = currBookResult.volumeInfo.publisher;
-            }
-            if (currBookResult.volumeInfo.imageLinks) {
-              currPresentedBook.imgSrc = currBookResult.volumeInfo.imageLinks.smallThumbnail;
-            } else {
-              currPresentedBook.imgSrc = '../assets/images/default_book1.jpg';
-            }
-            currPresentedBook.id = currBookResult.id;
-            currPresentedBook.printType = currBookResult.volumeInfo.printType;
-            currPresentedBook.language = currBookResult.volumeInfo.language;
-            currPresentedBook.description = currBookResult.volumeInfo.description;
-            this._booksMapSearchResult.set(currPresentedBook.id, currPresentedBook);
-            // this._booksSearchResult.push(currPresentedBook);
-          });
+          if (allBooks != null) {
+            allBooks.forEach(currBookResult => {
+              const currPresentedBook = new Book();
+              currPresentedBook.title = currBookResult.volumeInfo.title;
+              if (currBookResult.volumeInfo.authors != null) {
+                currBookResult.volumeInfo.authors.forEach(currAuthor => {
+                  currPresentedBook.authors.push(currAuthor);
+                });
+              }
+              if (currBookResult.volumeInfo.publisher != null) {
+                currPresentedBook.publisher = currBookResult.volumeInfo.publisher;
+              }
+              if (currBookResult.volumeInfo.imageLinks) {
+                currPresentedBook.imgSrc = currBookResult.volumeInfo.imageLinks.smallThumbnail;
+              } else {
+                currPresentedBook.imgSrc = '../assets/images/default_book1.jpg';
+              }
+              currPresentedBook.id = currBookResult.id;
+              currPresentedBook.printType = currBookResult.volumeInfo.printType;
+              currPresentedBook.language = currBookResult.volumeInfo.language;
+              currPresentedBook.description = currBookResult.volumeInfo.description;
+              this._booksMapSearchResult.set(currPresentedBook.id, currPresentedBook);
+              // this._booksSearchResult.push(currPresentedBook);
+            });
+          }
         });
     }
   }
