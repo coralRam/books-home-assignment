@@ -1,16 +1,25 @@
-export class Book{
+export class Book {
 
+  private _id: string;
   private _title: string;
   private _authors: string[];
   private _publisher: string;
   private _printType: string;
   private _language: string;
-
+  private _description: string;
   private _imgSrc: string;
 
 
   constructor() {
     this.authors = [];
+  }
+
+  get id(): string {
+    return this._id;
+  }
+
+  set id(value: string) {
+    this._id = value;
   }
 
   get title(): string {
@@ -59,5 +68,13 @@ export class Book{
 
   set language(value: string) {
     this._language = value;
+  }
+
+  get description(): string {
+    return this._description;
+  }
+
+  set description(value: string) {
+    this._description = value;
   }
 }

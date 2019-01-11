@@ -1,10 +1,7 @@
-<p-dataView #dv [value]="presentedBooks" [paginator]="true" [rows]="20" paginatorPosition="both">
+<p-dataView #dv [value]="bookManagerService.getBooksSearchResultArray()" [paginator]="true" [rows]="20" paginatorPosition="both">
   <p-header>
     <div class="ui-helper-clearfix">
       <div class="ui-g">
-       <!-- <div class="ui-g-12 ui-md-4">
-          <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [autoWidth]="false" [style]="{'min-width':'15em'}"></p-dropdown>
-        </div>-->
         <div class="ui-g-6 ui-md-4 filter-container">
           <div style="position:relative">
             <input #searchBox type="search" pInputText placeholder="Search your book">
@@ -34,37 +31,29 @@
         </div>
       </div>
       <div class="ui-g-12 ui-md-1 search-icon">
-        <button pButton type="button" icon="pi pi-search" (click)="selectBook($event, book)"></button>
+        <button pButton type="button"  (click)="selectBook($event, book)">more details</button>
       </div>
     </div>
   </ng-template>
-  <!--<ng-template let-book pTemplate="gridItem">-->
-    <!--<div style="padding:.5em" class="ui-g-12 ui-md-3">-->
-      <!--<p-panel [header]="book.name" [style]="{'text-align':'center'}">-->
-        <!--<img src="assets/showcase/images/demo/car/{{book.title}}.png" width="60">-->
-        <!--<div class="car-detail">{{book.name}} - {{book.title}}</div>-->
-        <!--<hr class="ui-widget-content" style="border-top:0">-->
-        <!--<button pButton type="button" icon="pi pi-search" (click)="selectBook($event, book)" style="margin-top:0"></button>-->
-      <!--</p-panel>-->
-    <!--</div>-->
-  <!--</ng-template>-->
 </p-dataView>
 
-<p-dialog header="Book Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [style]="{width: '225px'}"  (onAfterHide)="onDialogHide()">
-  <div class="ui-g" *ngIf="selectedCar">
-    <div class="ui-g-12" style="text-align:center">
-      <img src="assets/showcase/images/demo/car/{{selectedCar.brand}}.png">
-    </div>
-    <div class="ui-g-4">Vin: </div>
-    <div class="ui-g-8">{{selectedBook.name}}</div>
+<!--
+<p-dialog header="Book Description" [(visible)]="displayDialog" [dismissableMask]="true" [responsive]="true" showEffect="fade" [modal]="true" [style]="{width: '50%'}"  (onAfterHide)="onDialogHide()">
+  <div class="ui-g" *ngIf="selectedBook">
+    &lt;!&ndash;<div class="ui-g-12" style="text-align:center">&ndash;&gt;
+      &lt;!&ndash;<img src="http://books.google.com/books/content?id=3PMIAAAAQAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api">&ndash;&gt;
+    &lt;!&ndash;</div>&ndash;&gt;
+   &lt;!&ndash; <div class="ui-g-4">Vin: </div>&ndash;&gt;
+    <div [style]="{width: '100%'}">{{selectedBook.description}}</div>
 
-    <div class="ui-g-4">Brand: </div>
-    <div class="ui-g-8">{{selectedBook.name}}</div>
+    &lt;!&ndash;<div class="ui-g-4">Brand: </div>
+    <div class="ui-g-8">{{selectedBook.title}}</div>
 
     <div class="ui-g-4">Year: </div>
-    <div class="ui-g-8">{{selectedBook.name}}</div>
+    <div class="ui-g-8">{{selectedBook.title}}</div>
 
     <div class="ui-g-4">Color: </div>
-    <div class="ui-g-8">{{selectedBook.name}}</div>
+    <div class="ui-g-8">{{selectedBook.title}}</div>&ndash;&gt;
   </div>
 </p-dialog>
+-->

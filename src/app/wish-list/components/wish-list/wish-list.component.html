@@ -1,3 +1,20 @@
-<p>
-  wish-list works!
-</p>
+<p-virtualScroller [value]="bookManagerService.getWishListArray()" scrollHeight="500px" [itemSize]="150">
+  <p-header>Header Content</p-header>
+  <ng-template pTemplate="item" let-book>
+    <div class="ui-g-12 ui-md-8">
+      <div class="ui-g">
+        <div class="ui-g-2 ui-sm-6">Vin: </div>
+        <div class="ui-g-10 ui-sm-6">{{book.title}}</div>
+
+        <div class="ui-g-2 ui-sm-6">Year: </div>
+        <div class="ui-g-10 ui-sm-6">{{book.title}}</div>
+
+        <div class="ui-g-2 ui-sm-6">Brand: </div>
+        <div class="ui-g-10 ui-sm-6">{{book.title}}</div>
+
+        <div class="ui-g-2 ui-sm-6">Color: </div>
+        <div class="ui-g-10 ui-sm-6">{{book.title}}</div>
+      </div>
+    </div>
+  </ng-template>
+</p-virtualScroller>

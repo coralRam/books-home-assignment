@@ -1,0 +1,10 @@
+
+<p-dialog header="Book Description" [(visible)]="displayDialog" [dismissableMask]="true" [responsive]="true" showEffect="fade" [modal]="true" [style]="{width: '50%'}"  (onAfterHide)="onDialogHide()">
+  <div class="ui-g">
+    <div [style]="{width: '100%'}">{{book.description}}</div>
+  </div>
+  <p-footer>
+    <button type="button" pButton icon="pi pi-check" (click)="addToWishList()" label="wishlist"></button>
+<!--    <button type="button" pButton icon="pi pi-close" (click)="display=false" label="No" class="ui-button-secondary"></button>-->
+  </p-footer>
+</p-dialog>
