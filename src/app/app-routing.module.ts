@@ -13,9 +13,6 @@ const routes: Routes = [
   {path: 'wishList', component: WishListComponent, canActivate: [AuthenticationService]},
   {path: '', redirectTo: '/books', pathMatch: 'full'},
   {path: '**', redirectTo: '/books'},
- /* {path: '', component: BooksMainComponent},
-  {path: 'search', component: SearchComponent},
-  {path: 'wishList' , component: WishListComponent}*/
 ];
 
 @NgModule({

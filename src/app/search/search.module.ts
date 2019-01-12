@@ -22,7 +22,8 @@ import {ToastModule} from 'primeng/toast';
   declarations: [SearchComponent, BookDetailsDialogComponent],
   imports: [CommonModule, HttpClientModule, DataViewModule, DropdownModule, FormsModule,
             DataGridModule, PanelModule, DialogModule, TabViewModule, CodeHighlighterModule,
-            BrowserAnimationsModule, BrowserModule, ButtonModule, ToastModule, SplitButtonModule, PaginatorModule],
+            BrowserAnimationsModule, BrowserModule, ButtonModule, ToastModule, SplitButtonModule, PaginatorModule,
+  ],
   exports: [SearchComponent],
   entryComponents: [BookDetailsDialogComponent]
 })

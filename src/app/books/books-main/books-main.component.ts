@@ -15,5 +15,4 @@ export class BooksMainComponent implements OnInit {
   ngOnInit() {
     this.userName = this.userLogin.user;
   }
-
 }

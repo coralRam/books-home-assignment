@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Book} from '../../../shared/classes/book';
-import {UserLoginService} from '../../../login/services/user-login.service';
 
 @Component({
   selector: 'app-book-details-dialog',

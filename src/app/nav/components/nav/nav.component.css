@@ -24,13 +24,13 @@
   font-style: italic;
   text-decoration: none;
   letter-spacing: .6px;
-  color: white;
+  color: #005b9f;
 }
 
 .toolbar-a:hover {
-  color: #c4889f;
+  color: white;
   cursor: pointer;
-  border-bottom: 1px solid #c4889f;
+  border-bottom: 1px solid white;
 }
 
 .toolbar-a:focus {

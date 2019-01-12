@@ -1,12 +1,15 @@
 <p-dataView #dv [value]="bookManagerService.getBooksSearchResultArray()"  [paginator]="true" paginatorPosition="both" [rows]="20" [totalRecords]="100" [(first)]="first" [pageLinks]="5" [lazy]="true" (onLazyLoad)="loadData($event)">
- <!-- [rows]="10" [totalRecords]="80" paginatorPosition="both" (onPageChange)="paginate($event)" [(first)]="first"-->
   <p-header>
     <div class="ui-helper-clearfix">
       <div class="ui-g">
         <div class="ui-g-6 ui-md-4 filter-container">
-         <!--<button pButton type="button"  (click)="coral($event)">coral</button>-->
           <div style="position:relative">
-            <input #searchBox type="search" [(ngModel)]="searchText" pInputText placeholder="Search your book" (keyup)="changeToFirstPage($event)">
+            <div class="ui-g-12 ui-md-4">
+              <div class="ui-inputgroup">
+                <button pButton type="button" label="Search"></button>
+                <input #searchBox type="text" pInputText [(ngModel)]="searchText" pInputText placeholder="Search your book" (keyup)="changeToFirstPage($event)">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -30,32 +33,17 @@
 
           <div class="ui-g-2 ui-sm-6">language: </div>
           <div class="ui-g-10 ui-sm-6"><b>{{book.language}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6">print type: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{book.printType}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6">page count: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{book.pageCount}}</b></div>
         </div>
       </div>
-      <div class="ui-g-12 ui-md-1 search-icon">
-        <button pButton type="button"  (click)="selectBook($event, book)">more details</button>
+      <div class="ui-g-12 ui-md-1 more-details">
+        <button label="more details" pButton type="button" styleClass="ui-button-info" (click)="selectBook($event, book)"></button>
       </div>
     </div>
   </ng-template>
 </p-dataView>
-
-<!--
-<p-dialog header="Book Description" [(visible)]="displayDialog" [dismissableMask]="true" [responsive]="true" showEffect="fade" [modal]="true" [style]="{width: '50%'}"  (onAfterHide)="onDialogHide()">
-  <div class="ui-g" *ngIf="selectedBook">
-    &lt;!&ndash;<div class="ui-g-12" style="text-align:center">&ndash;&gt;
-      &lt;!&ndash;<img src="http://books.google.com/books/content?id=3PMIAAAAQAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api">&ndash;&gt;
-    &lt;!&ndash;</div>&ndash;&gt;
-   &lt;!&ndash; <div class="ui-g-4">Vin: </div>&ndash;&gt;
-    <div [style]="{width: '100%'}">{{selectedBook.description}}</div>
-
-    &lt;!&ndash;<div class="ui-g-4">Brand: </div>
-    <div class="ui-g-8">{{selectedBook.title}}</div>
-
-    <div class="ui-g-4">Year: </div>
-    <div class="ui-g-8">{{selectedBook.title}}</div>
-
-    <div class="ui-g-4">Color: </div>
-    <div class="ui-g-8">{{selectedBook.title}}</div>&ndash;&gt;
-  </div>
-</p-dialog>
--->

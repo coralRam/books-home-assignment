@@ -4,8 +4,6 @@ import {debounceTime,  map} from 'rxjs/operators';
 import {fromEvent} from 'rxjs';
 import {BookManagerService} from '../../../shared/services/book-manager.service';
 import {BookDetailsDialogComponent} from '../book-details-dialog/book-details-dialog.component';
-import {DataTable} from 'primeng/primeng';
-
 
 @Component({
   selector: 'app-search',
@@ -17,7 +15,6 @@ export class SearchComponent implements OnInit {
   public displayDialog: boolean;
   public searchText: string;
   first: number = 0;
-  /*@ViewChild('dv') dataView: DataTable;*/
   @ViewChild('searchBox') searchBox: ElementRef;
 
   constructor(public bookManagerService: BookManagerService,

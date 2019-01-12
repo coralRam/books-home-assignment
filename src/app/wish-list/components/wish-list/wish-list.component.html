@@ -1,21 +1,34 @@
-<p-virtualScroller [value]="bookManagerService.getWishListArray()" scrollHeight="500px" [itemSize]="150">
-  <p-header>Header Content</p-header>
+<p-virtualScroller [value]="bookManagerService.getWishListArray()" scrollHeight="500px" [itemSize]="250">
+  <p-header>your wishlist</p-header>
   <ng-template pTemplate="item" let-book>
-    <div class="ui-g-12 ui-md-8">
-      <div class="ui-g">
-        <div class="ui-g-2 ui-sm-6">Vin: </div>
-        <div class="ui-g-10 ui-sm-6">{{book.title}}</div>
+    <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+      <div class="ui-g-12 ui-md-3" style="text-align:center">
+        <img src="{{book.imgSrc}}">
+      </div>
+      <div class="ui-g-12 ui-md-8 car-details">
+        <div class="ui-g">
+          <div class="ui-g-2 ui-sm-6">title: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{book.title}}</b></div>
 
-        <div class="ui-g-2 ui-sm-6">Year: </div>
-        <div class="ui-g-10 ui-sm-6">{{book.title}}</div>
+          <div class="ui-g-2 ui-sm-6">authors: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{book.authors.toString()}}</b></div>
 
-        <div class="ui-g-2 ui-sm-6">Brand: </div>
-        <div class="ui-g-10 ui-sm-6">{{book.title}}</div>
+          <div class="ui-g-2 ui-sm-6">publisher: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{book.publisher}}</b></div>
 
-        <div class="ui-g-2 ui-sm-6">Color: </div>
-        <div class="ui-g-10 ui-sm-6">{{book.title}}</div>
+          <div class="ui-g-2 ui-sm-6">language: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{book.language}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6">print type: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{book.printType}}</b></div>
+
+          <div class="ui-g-2 ui-sm-6">page count: </div>
+          <div class="ui-g-10 ui-sm-6"><b>{{book.pageCount}}</b></div>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-md-1 remove">
+        <button  label="remove" pButton type="button" styleClass="ui-button-info" (click)="removeBookFromWishList(book)"></button>
       </div>
     </div>
-    <button type="button" pButton icon="pi pi-check" (click)="removeBookFromWishList(book)" label="remove from wishlist"></button>
   </ng-template>
 </p-virtualScroller>

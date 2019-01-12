@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WishListComponent } from './components/wish-list/wish-list.component';
-import {SearchComponent} from '../search/components/search/search.component';
 import {FormsModule} from '@angular/forms';
 import {VirtualScrollerModule} from 'primeng/virtualscroller';
 import {ButtonModule} from 'primeng/button';

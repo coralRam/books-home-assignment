@@ -8,6 +8,7 @@ export class Book {
   private _language: string;
   private _description: string;
   private _imgSrc: string;
+  private _pageCount: number;
 
 
   constructor() {
@@ -76,5 +77,13 @@ export class Book {
 
   set description(value: string) {
     this._description = value;
+  }
+
+  get pageCount(): number {
+    return this._pageCount;
+  }
+
+  set pageCount(value: number) {
+    this._pageCount = value;
   }
 }
