@@ -59,6 +59,8 @@ export class BookManagerService {
               tempMap.set(currPresentedBook.id, currPresentedBook);
             });
             this._booksMapSearchResult = tempMap;
+          } else {
+            this._booksMapSearchResult.clear();
           }
         });
     } else {
