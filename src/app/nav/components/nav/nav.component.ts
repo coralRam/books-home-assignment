@@ -9,8 +9,7 @@ import {UserLoginService} from '../../../login/services/user-login.service';
 export class NavComponent implements OnInit {
 
   constructor(public userLogin: UserLoginService) { }
-
   ngOnInit() {
-  }
 
+  }
 }

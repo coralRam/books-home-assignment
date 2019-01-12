@@ -1,51 +1,21 @@
-<!--<div class="login-form">
-  <h1>login</h1>
-  <form>
-    <div class="form-group">
-      <label for="name">user.ts name</label>
-      <input type="text" class="form-control" id="name" required>
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
-
-  </form>
-</div>-->
-
-<!--<div class="login-form">
-<form (ngSubmit)="onSubmit()" #userForm="ngForm">
-  <div class="form-group">
-    <mat-form-field id="username">
-      <input matInput type="text" placeholder="user.ts name" required [(ngModel)]="username" name= "username">
-    </mat-form-field>
-  </div>
-  <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">התחבר</button>
-</form>
-</div>-->
-<!--<input class="login-form" #box (keyup.enter)="onEnter(box.value)">-->
-
-
-<!--
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Favorite food" value="Sushi">
-  </mat-form-field>
-
-  <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Leave a comment"></textarea>
-  </mat-form-field>
-</form>
--->
-<div class="container">
-  <h1>login </h1>
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <div class="form-group">
-      <label for="username">username</label>
-      <input type="text" class="form-control input" id="username" name="username" [(ngModel)]="model.username" #username="ngModel" required>
-    </div>
-    <div [hidden]="username.valid || username.pristine"
-         class="alert alert-danger">
-      Name is required
-    </div>
-    <button type="submit" class="btn btn-success second-line-input" [disabled]="loginForm.invalid">Submit</button>
-  </form>
+<div align="center" class="login">
+  <h1 class="title">BOOKsLand </h1>
+  <img  src="../../../../assets/images/book_icon2.jpg">
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+     <div class="form-group">
+       <div class="ui-g ui-fluid">
+         <div class="ui-g-12 ui-md-4 userName">
+           <div class="ui-inputgroup">
+             <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+             <input  type="text" pInputText placeholder="Username" id="username" name="username" [(ngModel)]="model.username" #username="ngModel" required>
+           </div>
+         </div>
+       </div>
+      </div>
+      <div [hidden]="username.valid || username.pristine"
+           class="validation">
+        Name is required
+      </div>
+      <button pButton type="submit" label="Login" class="ui-button-raised ui-button-secondary login-button" [disabled]="loginForm.invalid"></button>
+      </form>
 </div>

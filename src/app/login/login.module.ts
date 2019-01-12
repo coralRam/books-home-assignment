@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import {FormsModule} from '@angular/forms';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ButtonModule, CheckboxModule, CodeHighlighterModule, InputTextModule, RadioButtonModule, TabViewModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -12,7 +13,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    InputTextModule,
+    ButtonModule,
+    CheckboxModule,
+    RadioButtonModule,
+    TabViewModule,
+    CodeHighlighterModule
   ],
   exports: [LoginComponent]
 })

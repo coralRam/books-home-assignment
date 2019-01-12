@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserLoginService} from '../../login/services/user-login.service';
 
 @Component({
   selector: 'app-books-main',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksMainComponent implements OnInit {
 
-  constructor() { }
+ public userName: string;
+
+  constructor(private userLogin: UserLoginService) { }
 
   ngOnInit() {
+    this.userName = this.userLogin.user;
   }
 
 }

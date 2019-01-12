@@ -17,8 +17,7 @@ export class UserLoginService {
     this.router.navigate(['/books']);
   }
 
-
-  get user(): User {
-    return this._user;
+  get user(): string {
+    return sessionStorage.getItem('username');
   }
 }

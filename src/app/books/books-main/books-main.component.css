@@ -1,0 +1,23 @@
+.home-page{
+  color: white;
+  text-align: center;
+  background-color: #c69f9f;
+  padding: 1%;
+  margin: auto;
+}
+
+.welcome{
+  color: #e5cece;
+}
+
+.bookland{
+  color: white;
+}
+
+.description{
+  margin-bottom: 2%;
+}
+
+.userName{
+  color: white;
+}
