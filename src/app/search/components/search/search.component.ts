@@ -40,11 +40,13 @@ export class SearchComponent implements OnInit {
    const componentRef = this.entry.createComponent(this.componentResolver.resolveComponentFactory(BookDetailsDialogComponent));
     (<BookDetailsDialogComponent>componentRef.instance).book = book;
     (<BookDetailsDialogComponent>componentRef.instance).displayDialog = true;
+    (<BookDetailsDialogComponent>componentRef.instance).addBookToWishList.subscribe
+                 (bookToAdd => this.bookManagerService.addBookToWishList(bookToAdd));
   }
 
   loadData(event) {
-    this.bookManagerService.searchBooks(this.searchText, event.first.toString() , 20);
-   /* this.first =  event.first;*/
+   this.bookManagerService.searchBooks(this.searchText, event.first.toString() , 20);
+    this.first =  event.first;
   }
 
   changeToFirstPage(event) {

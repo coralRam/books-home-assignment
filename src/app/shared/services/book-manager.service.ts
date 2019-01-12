@@ -97,7 +97,11 @@ export class BookManagerService {
     return this.http.get(this.serverUrl , params);
   }
 
-  addBookToWishList(book: Book) {
+  addBookToWishList(book: Book): void {
       this._wishListBooksMap.set(book.id, book);
+  }
+
+  removeBookFromWishList(bookId: string): void{
+    this._wishListBooksMap.delete(bookId);
   }
 }

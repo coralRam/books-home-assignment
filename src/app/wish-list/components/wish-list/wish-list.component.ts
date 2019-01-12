@@ -14,7 +14,8 @@ export class WishListComponent implements OnInit {
   }
 
   removeBookFromWishList(bookToRemove): void{
+    this.bookManagerService.removeBookFromWishList(bookToRemove.id);
 
-  }
+    }
 
 }

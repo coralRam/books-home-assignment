@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Book} from '../../../shared/classes/book';
-import {BookManagerService} from '../../../shared/services/book-manager.service';
 
 @Component({
   selector: 'app-book-details-dialog',
@@ -11,14 +10,15 @@ export class BookDetailsDialogComponent implements OnInit {
 
   @Input() book: Book;
   @Input() public displayDialog: boolean;
-  /*@Output() removeBookFromWishList = new EventEmitter<Book>();*/
+  @Output() addBookToWishList = new EventEmitter<Book>();
 
-  constructor(private bookManagerService: BookManagerService) { }
+  constructor() { }
 
   ngOnInit() {}
 
   addToWishList() {
-    this.bookManagerService.addBookToWishList(this.book);
+    this.displayDialog = false;
+    this.addBookToWishList.emit(this.book);
   }
 }
 
